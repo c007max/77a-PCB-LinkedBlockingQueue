@@ -9,12 +9,12 @@ public class IOThread_MAIN
 		LinkedBlockingQueue<PCB> QWait	= new LinkedBlockingQueue<PCB>();
 		
 		thProducer	producer	= new thProducer	(QReady	,QWait	)	;
-		thConsumer	consumer	= new thConsumer	(QWait	,producer	)	;
-		
+		thConsumer	consumer	= new thConsumer	(QReady	,QWait	,producer	)	;
+
 		Thread	producerThread	= new Thread	(producer)	;
 		Thread	consumerThread	= new Thread	(consumer)	;
 		
-		int nodes_T	= 5 ;
+		int nodes_T	= 10 ;
 				
 		for (int ii=0; ii<nodes_T; ii++)
 		{
@@ -41,7 +41,13 @@ public class IOThread_MAIN
 		}
 		//	0300	complete
 
-		consumerThread.join()	;
+		while (Thread.activeCount()>1)
+		{
+			for (PCB loopI : QReady)
+				System.out.printf("***\tmain-0400: %s\t***\n"	,loopI.showPCB()) ;
+			
+			Thread.sleep(1000)	;
+		}
 		
 		System.out.printf("@@@\tdone\t@@@\n");
 	}
