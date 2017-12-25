@@ -24,8 +24,7 @@ public class thProducer implements Runnable
 		return running ;
 	}
 	
-	@Override
-    public void run() 
+	public void run() 
 	{	
 		PCB	pcb	= null	;
 		Random r1	= new Random()	;

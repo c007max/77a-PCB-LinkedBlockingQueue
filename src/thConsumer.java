@@ -18,8 +18,7 @@ public class thConsumer implements Runnable
 		this.producer	= prod0	;
 	}
 	
-	@Override
-    public void run() 
+	public void run() 
 	{	
 		PCB	pcb	= null	;
 		

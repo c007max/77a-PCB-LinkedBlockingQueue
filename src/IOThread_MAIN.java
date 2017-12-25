@@ -2,7 +2,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class IOThread_MAIN
 {
-	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws InterruptedException
 	{
 		LinkedBlockingQueue<PCB> QReady	= new LinkedBlockingQueue<PCB>();
